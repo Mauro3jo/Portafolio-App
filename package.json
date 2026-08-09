@@ -1,10 +1,10 @@
 {
   "name": "PortafolioApp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android:release": "cd android && gradlew.bat bundleRelease",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
@@ -37,6 +37,6 @@
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">= 22.11.0"
+    "node": "^20.19.4 || ^22.13.0 || >=24.3.0"
   }
 }

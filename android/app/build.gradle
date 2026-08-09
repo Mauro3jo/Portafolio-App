@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.portafolioapp"
+    namespace "com.maurotrejo.portfolio"
     defaultConfig {
-        applicationId "com.portafolioapp"
+        applicationId "com.maurotrejo.portfolio"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
