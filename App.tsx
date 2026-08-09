@@ -1,45 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {PreferencesProvider, usePreferences} from './src/app/providers/PreferencesProvider';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+function AppContent() {
+  const {colors, isDark} = usePreferences();
 
   return (
+    <SafeAreaView style={[styles.container, {backgroundColor: colors.background}]}>
+      <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} backgroundColor={colors.background} />
+      <View style={[styles.mark, {backgroundColor: colors.primary}]} />
+      <Text style={[styles.eyebrow, {color: colors.primary}]}>PORTFOLIO APP</Text>
+      <Text style={[styles.title, {color: colors.text}]}>Mauro Trejo</Text>
+      <Text style={[styles.subtitle, {color: colors.textMuted}]}>React Native · React · .NET</Text>
+    </SafeAreaView>
+  );
+}
+
+export default function App() {
+  return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <PreferencesProvider>
+        <AppContent />
+      </PreferencesProvider>
     </SafeAreaProvider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {flex: 1, justifyContent: 'center', paddingHorizontal: 28},
+  mark: {width: 52, height: 5, borderRadius: 3, marginBottom: 24},
+  eyebrow: {fontSize: 13, fontWeight: '800', letterSpacing: 2},
+  title: {fontSize: 42, fontWeight: '800', letterSpacing: -1.5, marginTop: 8},
+  subtitle: {fontSize: 17, marginTop: 8},
 });
-
-export default App;
