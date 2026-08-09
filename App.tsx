@@ -2,6 +2,7 @@ import React from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import {PreferencesProvider, usePreferences} from './src/app/providers/PreferencesProvider';
+import {PortfolioProvider} from './src/app/providers/PortfolioProvider';
 
 function AppContent() {
   const {colors, isDark} = usePreferences();
@@ -21,7 +22,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <PreferencesProvider>
-        <AppContent />
+        <PortfolioProvider>
+          <AppContent />
+        </PortfolioProvider>
       </PreferencesProvider>
     </SafeAreaProvider>
   );
