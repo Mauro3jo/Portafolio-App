@@ -37,3 +37,5 @@ npm test -- --runInBand
 ```
 
 El identificador Android es `com.maurotrejo.portfolio`. Los archivos privados de firma y `google-services.json` están excluidos de Git.
+
+La app incluye navegación mobile, contenido remoto con caché offline, fallback local, tema e idioma persistentes, filtros, deep links y compartir nativo. La activación segura de Firebase y la firma de Play Store están documentadas en `docs/FIREBASE_AND_PLAY.md`.
